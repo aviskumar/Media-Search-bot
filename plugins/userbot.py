@@ -34,14 +34,14 @@ async def index_files(bot, message):
                         
                         async for user_message in user_bot.iter_history(chat):
                             try:
-                                message = await user_bot.get_messages(
+                                message = await bot.get_messages(
                                     chat,
                                     user_message.message_id,
                                     replies=0,
                                 )
                             except FloodWait as e:
                                 await asyncio.sleep(e.x)
-                                message = await user_bot.get_messages(
+                                message = await bot.get_messages(
                                     chat,
                                     user_message.message_id,
                                     replies=0,
